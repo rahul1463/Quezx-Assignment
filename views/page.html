@@ -1,0 +1,84 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="header">
+    <h3> Submitted By - RAHUL (IPG2014-066)</h3>
+    <br><br>
+  </div>
+ <div class="row">
+  <div class="col-md-12">
+   <div class="searchSection">
+    <div class="input-group">
+     <input type="text" class="form-control" placeholder="Search" aria-describedby="basic-addon1" ng-model="searchSkills.name">
+     <span class="input-group-btn" ng-click="searchSkill()">
+      <button type="button" class="btn btn-info">Search Skill</button></span>
+    </div>
+   </div>
+  </div>
+ </div>
+ <br/>
+ <div class="row mt-20">
+  <div class="col-md-12">
+   <div class="addSection">
+    <div class="row">
+      <div style="margin-top: 3%; margin-bottom:8%;">
+     <div class="col-md-10 addlabel" style="padding-top: 1%;">Name</div>
+     <div class="col-md-2 text-right"> <button type="button" class="btn btn-info" ng-click="showAdd = true">Add</button></div>
+     </div>
+    </div>
+    <div class="addInput" ng-show="showAdd">
+     <div class="input-group">
+      <input type="text" class="form-control" placeholder="Add Skill" aria-describedby="basic-addon1" ng-model="addSkills.name">
+      <span class="bg-success" ng-click="addSkill()"><button type="button" class="btn btn-success">Submit</button></span>
+     </div>
+     <div style="line-height: 3.4rem;" ng-click="changeStatus('approved');addSkills.status = true">
+      <!-- <button type="button" name="button" ng-click="addSkills.status = true"> -->
+      <span class="glyphicon glyphicon-ok" ng-class="{'text-green': addSkills.status}"></span>
+      <span ng-class="{'text-green': addSkills.status}">Approve</span>
+      <!-- </button> -->
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <div class="row mt-20">
+  <div class="col-md-12">
+   <div class="tableSection">
+    <table class="table">
+     <tr ng-repeat="list in skillList">
+      <!-- <td>{{list.name}}</td> -->
+      <td>
+       <div ng-show="openEdit">
+        <div class="addSection">
+         <div class="addInput">
+          <div class="input-group">
+           <input type="text" class="form-control" placeholder="Add Skill" aria-describedby="basic-addon1" ng-model="list.name">
+           <br>
+           <span class="bg-success" id="basic-addon1" ng-click="changeSkill(list)"><button type="button" class="btn btn-success">Submit</button></span>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div ng-mouseover="open = true" ng-mouseleave="open = false" ng-show="!openEdit">
+        <span>{{list.name}} </span>
+        <span class="glyphicon glyphicon-pencil" ng-show="open" ng-click="openEdit = true"></span>
+       </div>
+      </td>
+      <td class="text-right col-md-3" ng-class="{'text-green': list.status == true}" ng-click="list.status = true;changeStatus(list);">
+       <span class="glyphicon glyphicon-ok"></span> Approve
+      </td>
+      <td class="text-right col-md-3" ng-class="{'text-danger': list.status == false}" ng-click="list.status = false;changeStatus(list);">
+       <span class="glyphicon glyphicon-remove"></span> Reject
+      </td>
+     </tr>
+    </table>
+   </div>
+  </div>
+ </div>
+</div>

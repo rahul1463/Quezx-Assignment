@@ -1,0 +1,20 @@
+{
+  "name": "Quezx Assignment",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RAHUL YADAV",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.12.6",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.3"
+  }
+}
